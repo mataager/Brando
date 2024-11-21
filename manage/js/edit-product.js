@@ -369,7 +369,7 @@ async function handleFileSelect2(event, dropZone) {
   const formData = new FormData();
   formData.append("image", file);
 
-  const clientId = "e855dfc7fb0d876";
+  const clientId = "0ba30ba3c7de37d";
   const preloader = document.createElement("div");
   preloader.classList.add("uploadloader");
   dropZone.appendChild(preloader);
@@ -448,7 +448,7 @@ async function handleDrop2(event, dropZone) {
   const formData = new FormData();
   formData.append("image", files[0]);
 
-  const clientId = "e855dfc7fb0d876";
+  const clientId = "0ba30ba3c7de37d";
   const preloader = document.createElement("div");
   preloader.classList.add("uploadloader");
   dropZone.appendChild(preloader);
@@ -996,7 +996,7 @@ async function updateMainProductImages() {
 
 // Function to upload an image to Imgur and return the URL
 function uploadImageToImgur(file) {
-  const clientId = "e855dfc7fb0d876"; // Your Imgur Client ID
+  const clientId = "0ba30ba3c7de37d"; // Your Imgur Client ID
   const formData = new FormData();
   formData.append("image", file);
 
