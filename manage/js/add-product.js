@@ -333,7 +333,7 @@ async function handleFileSelect(event, dropZone) {
   const formData = new FormData();
   formData.append("image", file);
 
-  const clientId = "e855dfc7fb0d876";
+  const clientId = "0ba30ba3c7de37d";
   const preloader = document.createElement("div");
   preloader.classList.add("uploadloader");
   dropZone.appendChild(preloader);
@@ -425,7 +425,7 @@ async function handleDrop(event, dropZone) {
   const formData = new FormData();
   formData.append("image", files[0]);
 
-  const clientId = "e855dfc7fb0d876";
+  const clientId = "0ba30ba3c7de37d";
   const preloader = document.createElement("div");
   preloader.classList.add("uploadloader");
   dropZone.appendChild(preloader);
