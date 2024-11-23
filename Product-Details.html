@@ -320,8 +320,10 @@
                                         const pageTitle = encodeURIComponent(document.title);
 
                                         // Set up Facebook share link
-                                        const facebookShareURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentPageURL)}&quote=${encodeURIComponent(pageTitle)}`;
-                                        document.getElementById('shareFacebook').href = facebookShareURL;
+                                         document.getElementById('shareFacebook').addEventListener('click', function () {
+                                            const facebookURL = `https://www.facebook.com/dialog/share?app_id=61564248736614&href=${encodeURIComponent(currentPageURL)}&quote=${encodeURIComponent(pageTitle)}&display=popup`;
+                                            window.open(facebookURL, '_blank'); // Open the Facebook share dialog
+                                        });
 
                                         // Set up WhatsApp share link
                                         const whatsappShareURL = `https://wa.me/?text=${pageTitle}%20${currentPageURL}`;
