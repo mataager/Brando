@@ -286,10 +286,73 @@
                                     </div>
 
                                 </div>
+                                 <div class="m-5 mb-10">
+                                    <button id="shareProductButton" class="Share-Product">
+                                        Copy Link <i class="bi bi-link-45deg"></i>
+                                    </button>
+                                    <div id="copyMessage" style="display: none; color: green; margin-top: 10px;">Link
+                                        copied!</div>
+                                </div>
+                                <div class="m-5 mb-10">
+                                    <div class="social-share-buttons">
+                                        <a id="shareFacebook" class="circle-button facebook" href="#" target="_blank"
+                                            title="Share on Facebook">
+                                            <i class="bi bi-facebook"></i>
+                                        </a>
+                                        <a id="shareWhatsApp" class="circle-button whatsapp" href="#" target="_blank"
+                                            title="Share on WhatsApp">
+                                            <i class="bi bi-whatsapp"></i>
+                                        </a>
+                                        <a id="shareInstagram" class="circle-button instagram" href="#"
+                                            title="Share on Instagram">
+                                            <i class="bi bi-instagram"></i>
+                                        </a>
+                                    </div>
+                                </div>
                                 
 
                                 <!--cart validation-->
                                 <script>
+                                    
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        // Get the current page URL and encode it for sharing
+                                        const currentPageURL = encodeURIComponent(window.location.href);
+                                        const pageTitle = encodeURIComponent(document.title);
+
+                                        // Set up Facebook share link
+                                        const facebookShareURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentPageURL)}&quote=${encodeURIComponent(pageTitle)}`;
+                                        document.getElementById('shareFacebook').href = facebookShareURL;
+
+                                        // Set up WhatsApp share link
+                                        const whatsappShareURL = `https://wa.me/?text=${pageTitle}%20${currentPageURL}`;
+                                        document.getElementById('shareWhatsApp').href = whatsappShareURL;
+
+                                        // Instagram share handler (placeholder)
+                                        document.getElementById('shareInstagram').addEventListener('click', function () {
+                                            const instagramMessage = `${pageTitle} ${currentPageURL}`;
+                                            const instagramURL = `instagram://share?text=${encodeURIComponent(instagramMessage)}`;
+                                            window.open(instagramURL, '_blank');
+                                        });
+
+                                        // Copy URL to clipboard on "Share My Product" button click
+                                        document.getElementById('shareProductButton').addEventListener('click', function () {
+                                            navigator.clipboard.writeText(window.location.href)
+                                                .then(() => {
+                                                    // Show confirmation message
+                                                    const messageDiv = document.getElementById('copyMessage');
+                                                    messageDiv.style.display = 'block';
+
+                                                    // Hide the confirmation message after 2 seconds
+                                                    setTimeout(() => {
+                                                        messageDiv.style.display = 'none';
+                                                    }, 2000);
+                                                })
+                                                .catch(err => {
+                                                    console.error('Failed to copy URL:', err);
+                                                });
+                                        });
+                                    });
+
                                     // Function to check if elements are empty and toggle button state
                                     function checkAndToggleButton(sizeId, colorId, buttonId) {
                                         const sizeElement = document.getElementById(sizeId);
